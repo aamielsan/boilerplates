@@ -1,0 +1,29 @@
+{
+  "name": "@krispsystems/template-kit",
+  "version": "1.0.0",
+  "description": "",
+  "main": "/dist/app.js",
+  "types": "/dist/app.d.ts",
+  "scripts": {
+    "start": "node dist/app.js",
+    "build": "npm run build-ts && npm run tslint",
+    "build-ts": "npm run clean-ts && tsc",
+    "watch": "npm run build-ts && concurrently -k -n \"Typescript,Node\" -c \"blue.bold,green.bold\" \"npm run watch-ts\" \"npm run watch-js\"",
+    "watch-ts": "tsc -w",
+    "watch-js": "NODE_ENV=development nodemon dist/app.js",
+    "tslint": "tslint -c tslint.json -p tsconfig.json",
+    "clean-ts": "rm -rf ./dist",
+    "clean-install": "rm -rf ./node_modules && npm install"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/es6-promise": "^3.3.0",
+    "@types/node": "^10.9.4",
+    "concurrently": "^4.0.1",
+    "nodemon": "^1.18.4",
+    "tslint": "^5.11.0",
+    "typescript": "^3.0.3"
+  }
+}

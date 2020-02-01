@@ -1,0 +1,23 @@
+{
+  "name": "nextjs-boilerplate",
+  "version": "1.0.0",
+  "description": "",
+  "private": true,
+  "scripts": {
+    "postinstall": "npm run install:app && npm run install:api",
+    "install:app": "cd app && npm i",
+    "install:api": "cd api && npm i",
+    "dev": "concurrently -c \"cyan,white\" \"npm:dev:app\" \"npm:dev:api\"",
+    "dev:app": "cd app && npm run dev",
+    "dev:api": "cd api && npm run dev",
+    "build": "npm run build:app && npm run build:api",
+    "build:app": "cd app && npm run build",
+    "build:api": "cd api && npm run build"
+  },
+  "keywords": [],
+  "author": "Adrian Sanchez",
+  "license": "ISC",
+  "dependencies": {
+    "concurrently": "^4.1.2"
+  }
+}
